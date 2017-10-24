@@ -4,6 +4,7 @@
   "description": "todo list test project",
   "main": "servers/main.js",
   "scripts": {
+    "start": "node server/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,8 @@
   },
   "homepage": "https://github.com/rokoala/sample-todo-list#readme",
   "dependencies": {
-    "express": "^4.15.5"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "monk": "^6.0.5"
   }
 }

@@ -1,7 +1,10 @@
+const db = require('monk')('localhost/test')
+
+const tasks = db.get('tasks');
+
 var api = {
-    getBooks:function(){
-        console.log("getting your books")
-        return "here is your books"
+    getTasks(){
+        return tasks.find({});
     }
 }
 
