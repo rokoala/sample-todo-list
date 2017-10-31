@@ -8,9 +8,18 @@ var load = function () {
     });
 }
 
+var addTaskDB = function(name) {
+    if(name == ""){
+        return false;
+    }
+    //insere a task no banco
+    $.post("api/task", {name:name}, function (data) {
+        addTask(data.name, data.done);
+    });
+}
+
 var addTask = function(name, done){
     var value = name;
-    //TODO Check if name is empty
     var $li = $("<li/>");
     var $span = $("<span/>")
 
@@ -42,7 +51,7 @@ var main = function () {
     load();
 
     $("#addBtn").click(function () {
-        addTask($('#addInput').val(), false);
+        addTaskDB($('#addInput').val());
     });
 }
 

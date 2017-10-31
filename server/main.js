@@ -17,6 +17,12 @@ app.get("/api/tasks", function(req,res){
     })
 })
 
+app.post("/api/task", function(req,res){
+    API.addTask(req.body.name).then(function(result){
+       res.send(result)
+   })
+})
+
 app.use(express.static("public"));
 
 app.listen(PORT, function(){
