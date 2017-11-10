@@ -10,8 +10,7 @@ var load = function () {
 
 var editTask = function(name, done){
     //atualiza o status done no banco
-    $.post("api/uptask", {name:name, done:done}, function (data) {
-    })
+    $.post("api/uptask", {name:name, done:done});
 }
 
 var addTaskDB = function(name) {
