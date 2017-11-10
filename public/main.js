@@ -8,6 +8,12 @@ var load = function () {
     });
 }
 
+var editTask = function(name, done){
+    //atualiza o status done no banco
+    $.post("api/uptask", {name:name, done:done}, function (data) {
+    })
+}
+
 var addTaskDB = function(name) {
     if(name == ""){
         return false;
@@ -29,16 +35,18 @@ var addTask = function(name, done){
     $li.append($span);
 
     if(done){
-        $span.css({ "text-decoration": "line-through" })
+        $span.css({ "text-decoration": "line-through" });
         $checkbox.attr("checked","true");
     }
 
     $checkbox.click(function (event) {
         var valueTextDecoration = $span.css("text-decoration");
         if (valueTextDecoration.indexOf("line-through") !== -1) {
-            $span.css("text-decoration", "none")
+            $span.css("text-decoration", "none");
+            editTask(name, false);
         } else {
-            $span.css({ "text-decoration": "line-through" })
+            $span.css({ "text-decoration": "line-through" });
+            editTask(name, true);
         }
     })
 
