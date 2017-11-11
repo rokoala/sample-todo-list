@@ -13,12 +13,8 @@ var api = {
     editTask(name, done){
         // Fiz esse tratamento tosco pq o update tava inserindo
         // 'false' e 'true' como strings no banco
-        if(done=='true'){
-            return result = tasks.findOneAndUpdate({name:name}, {name:name, done:true});
-        }
-        else{
-            return result = tasks.findOneAndUpdate({name:name}, {name:name, done:false});
-        }
+        _done = (done === 'true') ? true : false;
+        return tasks.findOneAndUpdate({name:name}, {name:name, done:_done});
         //TODO: tratar erro
     },
 }
