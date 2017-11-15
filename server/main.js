@@ -24,7 +24,7 @@ app.post("/api/task", function(req,res){
 })
 
 app.post("/api/uptask", function(req,res){
-    API.editTask(req.body.name, req.body.done).then(function(result){
+    API.editTask(req.body.id, req.body.done).then(function(result){
         console.log(result)
         res.send(result)
    })

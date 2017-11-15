@@ -10,11 +10,11 @@ var api = {
         return tasks.insert({name:name, done:false});
         //TODO: tratar erro
     },
-    editTask(name, done){
+    editTask(id, done){
         // Fiz esse tratamento tosco pq o update tava inserindo
         // 'false' e 'true' como strings no banco
         var _done = (done === 'true') ? true : false;
-        return tasks.findOneAndUpdate({name:name}, {name:name, done:_done});
+        return tasks.update({_id:id}, {$set:{done:_done}});
         //TODO: tratar erro
     },
 }
