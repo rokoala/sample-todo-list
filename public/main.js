@@ -27,7 +27,7 @@ var addTaskDB = function(name) {
     }
     //insere a task no banco
     $.post("api/task", {name:name}, function (data) {
-        addTask(data.id, data.name, data.done);
+        addTask(data._id, data.name, data.done);
     });
 }
 
