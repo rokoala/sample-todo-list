@@ -10,21 +10,26 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get("/api/tasks", function(req,res){
-     API.getTasks().then(function(result){
-        console.log(result)
+app.get("/api/tasks", function (req, res) {
+    API.getTasks().then(function (result) {
         res.send(result)
-    })
-})
+    });
+});
 
-app.post("/api/task", function(req,res){
-    API.addTask(req.body.name).then(function(result){
-       res.send(result)
-   })
-})
+app.post("/api/task", function (req, res) {
+    API.addTask(req.body.name).then(function (result) {
+        res.send(result)
+    });
+});
+
+app.put("/api/task", function (req, res) {
+    API.editTask(req.body.id, req.body.done).then(function (result) {
+        res.send(result)
+    });
+});
 
 app.use(express.static("public"));
 
-app.listen(PORT, function(){
-    console.log("Server listening at: %s", PORT);
+app.listen(PORT, function () {
+    console.log("Server listening at:", PORT);
 })
